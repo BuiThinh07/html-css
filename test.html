@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/grid.css">
+    <link rel="stylesheet" href="./assets/css/detailItem.css">
+    <link rel="stylesheet" href="./assets/css/footer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="./assets/font/css/all.min.css">
+    <title>Document</title>
+    <script src="./assets/js/header.js"></script>
+    <script src="./assets/js/footer.js"></script>
+    <script src="./assets/js/form.js"></script>
+    <script src="./assets/js/sanPham.js"></script>
+    <script src="./assets/js/gioHang.js"></script>
+    <script src="./assets/js/chi-tiet-san-pham.js"></script>
+    <style>
+        .choonse {
+            background-color: #36d7aa99;
+        }
+
+        .open {
+            display: flex;
+        }
+
+        .close {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Hiển thị từng chi tiết sản phẩm -->
+        <div class="detail">
+            <div class="grid wide">
+                <div class="col l-12 m-12 c-12">
+                    <div class="col l-5 m-5 c-12">
+                        <div class="detail-item-img">
+                            <img src="./assets/img/anh1.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="col l-7 m-7 c-12 detail-item">
+                        <div class="detail-item-title">Áo Hoodie MAIL LÁ THƯ Ulzzang Unisex 1hitshop</div>
+                        <div class="detail-item-price">
+                            <div class="detail-item-price__old">250.000 đ</div>
+                            <div class="detail-item-price__current">150.000 đ</div>
+                            <div class="detail-item-price__percent-reduce">20% GIẢM</div>
+                        </div>
+                        <div class="detail-item-subtitle">
+                            <p>
+                                Gì cũng rẻ
+                                <i class="fas fa-laugh-squint"></i>
+                            </p>
+                            <label>Giá tốt nhất so với các sản phẩm cùng loại!</label>
+                        </div>
+                        <div class="detail-item-color">
+                            <p>Màu</p>
+                            <ul class="detail-item-list-color">
+                                <li>Đen</li>
+                                <li>Trắng</li>
+                                <li>Đỏ</li>
+                                <li>Xanh dương</li>
+                            </ul>
+                        </div>
+                        <div class="detail-item-size">
+                            <p>Size</p>
+                            <ul class="detail-item-list-size">
+                                <li>XL</li>
+                                <li>L</li>
+                                <li>M</li>
+                            </ul>
+                        </div>
+                        <div class="detail-item-quantity">
+                            <p>Số lượng</p>
+                            <li class="detail-item-quantity-reduce">-</li>
+                            <input class="detail-item-quantity-number" value="1">
+                            <li class="detail-item-quantity-crease">+</li>
+                        </div>
+                        <div class="detail-item-button">
+                            <button class="btn in-cart">
+                                <i class="fas fa-shopping-cart"></i>
+                                Thêm vào giỏ hàng
+                            </button>
+                            <button class="btn buy">Mua ngay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal1 close">
+        <div class="col l-6 m-8 s-12 modal-container">
+            <div class="modal-container__close">
+                <i class="fas fa-times"></i>
+            </div>
+            <p class="modal-container__title">Chi tiết chuyển khoản</p>
+            <div class="modal-container-list">
+                <div class="modal-item">
+                    <p class="modal-item-name">Name</p>
+                    <p class="btn-banking">Áo Hoodie Hình khủng long bắn bị tổn thuong siêu Cute</p>
+                </div>
+                <div class="modal-item">
+                    <p class="modal-item-color">Màu sắc</p>
+                    <p class="btn-banking">Trắng</p>
+                </div>
+                <div class="modal-item">
+                    <p class="modal-item-size">Size</p>
+                    <p class="btn-banking">L</p>
+                </div>
+                <div class="modal-item">
+                    <p class="modal-item-quantity">Số lượng</p>
+                    <p class="btn-banking">1</p>
+                </div>
+                <div class="modal-item">
+                    <p class="modal-item-giaBan">Giá</p>
+                    <p class="btn-banking">100.000 đ</p>
+                </div>
+                <div class="modal-item">
+                    <p class="modal-item-sumMoney">Tổng tiền</p>
+                    <p class="btn-banking">100.000 đ</p>
+                </div>
+                <div class="modal-item">
+                    <p>Tài khoản nguồn</p>
+                    <input type="text" class="stkOfYou">
+                </div>
+                <div class="modal-item">
+                    <p>Tài khoản Shop</p>
+                    <p class="btn-banking">1234567890123</p>
+                </div>
+                <div class="modal-item">
+                    <p>Tiền chuyển khoản</p>
+                    <p class="btn-banking">100.000 đ</p>
+                </div>
+                <button class="btn banking">Thanh toán</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script điền thông tin sản phẩm mua -->
+    <script>
+        var list1 = document.querySelectorAll('.detail-item-list-color li');
+        for (const item of list1) {
+            item.addEventListener('click', function () {
+                for (var i = 0; i < list1.length; i++) {
+                    list1[i].classList.remove('choonse');
+                }
+                item.classList.add('choonse');
+            })
+        }
+
+
+        var list2 = document.querySelectorAll('.detail-item-list-size li')
+        for (const item of list2) {
+            item.addEventListener('click', function () {
+                for (var i = 0; i < list2.length; i++) {
+                    list2[i].classList.remove('choonse');
+                }
+                item.classList.add('choonse');
+            })
+        }
+
+        const crease = document.querySelector('.detail-item-quantity-crease');
+        const reduce = document.querySelector('.detail-item-quantity-reduce');
+        const soLuong = document.querySelector('.detail-item-quantity input');
+        crease.addEventListener('click', () => { soLuong.value++ });
+        reduce.addEventListener('click', () => {
+            if (soLuong.value > 1) {
+                soLuong.value--;
+            }
+        })
+
+    </script>
+
+    <!-- Script hiển thị bảng thanh toán -->
+    <script>
+        const nodeModal = document.querySelector('.modal1');
+        const nodeBuy = document.querySelector('.btn.buy');
+
+        nodeBuy.addEventListener('click', () => {
+            var nodeColor = document.querySelector('ul.detail-item-list-color .choonse');
+            var nodeSize = document.querySelector('ul.detail-item-list-size .choonse');
+            if (nodeColor == null || nodeSize == null) {
+                alert('Bạn chưa điền đủ thông tin(màu sắc hoặc size) !!!');
+            }
+            else {
+                var htmlKhungThanhToan = hienThiKhungThanhToan();
+                nodeModal.innerHTML = htmlKhungThanhToan;
+                nodeModal.classList.add('open');
+                nodeModal.classList.remove('close');
+                const nodeClose = document.querySelector('.modal-container__close');
+                nodeClose.addEventListener('click', () => {
+                    nodeModal.classList.add('close');
+                    nodeModal.classList.remove('open');
+                });
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>

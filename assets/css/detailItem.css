@@ -1,0 +1,275 @@
+
+
+.detail {
+    margin-top: 150px;
+    margin-bottom: 50px;
+}
+
+.detail-item {
+    margin-left: 32px;
+}
+
+.detail-item-img img{
+    width: 100%;
+}
+
+.detail-item-title {
+    font-size: 2rem;
+    color: var(--text-color--);
+    margin-top: 12px;
+    line-height: 2.6rem;
+}
+
+.detail-item-price {
+    display: flex;
+    padding: 20px 0;
+    align-items: center;
+}
+
+.detail-item-price__old {
+    font-size: 2rem;
+    text-decoration: line-through;
+    color: #333;
+}
+
+.detail-item-price__current {
+    font-size: 3rem;
+    color: #d71f1f;
+    margin: 0 16px;
+}
+
+.detail-item-price__percent-reduce {
+    padding: 3px 20px;
+    font-size: 1.2rem;
+    background-color: #c92424;
+    color: #fff;
+}
+
+.detail-item-subtitle p {
+    color: #c31f1f;
+    font-size: 2rem;
+    margin-bottom: 6px;
+}
+
+.detail-item-subtitle label {
+    color: #333333a6;
+    font-size: 1.2rem;
+}
+
+.detail-item-color {
+    display: flex;
+    margin-top: 16px;
+}
+
+.detail-item-color p {
+    margin-right: 20px;
+    font-size: 1.6rem;
+    color: #333;
+    line-height: 30px;
+}
+
+.detail-item-list-color {
+    display: flex;
+    list-style: none;
+}
+
+.detail-item-list-color li {
+    padding: 6px 16px;
+    margin: 0 8px;
+    border: 1px solid #99999947;
+    cursor: pointer;
+}
+.detail-item-list-color li:hover {
+    border: 1px solid rgba(230, 13, 13, 0.315);
+}
+
+.detail-item-size {
+    display: flex;
+    margin-top: 16px;
+}
+
+.detail-item-size p {
+    margin-right: 20px;
+    font-size: 1.6rem;
+    color: #333;
+    line-height: 30px;
+}
+
+.detail-item-list-size {
+    display: flex;
+    list-style: none;
+}
+
+.detail-item-list-size li {
+    padding: 6px 16px;
+    margin: 0 8px;
+    border: 1px solid #99999947;
+    cursor: pointer;
+}
+.detail-item-list-size li:hover {
+    border: 1px solid rgba(230, 13, 13, 0.315);
+}
+
+.detail-item-quantity {
+    display: flex;
+    margin-top: 16px;
+}
+
+.detail-item-quantity p {
+    margin-right: 20px;
+    font-size: 1.6rem;
+    color: #333;
+    line-height: 30px;
+}
+
+.detail-item-quantity li {
+    padding: 6px 16px;
+    margin: 0 8px;
+    border: 1px solid #99999947;
+    list-style: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.detail-item-quantity li:hover {
+    border: 1px solid rgba(230, 13, 13, 0.315);
+}
+
+.detail-item-quantity-reduce {
+    cursor: pointer;
+}
+
+.detail-item-quantity-number {
+    width: 50px;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #99999947;
+    outline: none;
+}
+
+.detail-item-quantity-increase {
+    cursor: pointer;
+}
+
+.detail-item-button {
+    margin-top: 36px;
+}
+
+.detail-item-button a {
+    text-decoration: none;
+}
+
+.btn.in-cart {
+    padding: 20px 20px;
+    background-color: #ce2e2e;
+    font-size: 1.6rem;
+    color: #fff;
+    margin-right: 24px;
+}
+
+.btn.in-cart i {
+    margin-right: 6px;
+}
+
+.btn.buy {
+    padding: 20px 20px;
+    background-color: #ce2e2e;
+    font-size: 1.6rem;
+    color: #fff;
+}
+
+.btn:hover {
+    background-color: rgba(167, 44, 44, 0.904);
+}
+
+/* Thanh toán */
+
+.modal1 {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.4);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.modal-container {
+    margin: auto;
+    background-color:#fff; 
+    height: 600px;
+    margin-top: 80px;
+    position: relative;
+}
+
+.modal-container__title {
+    font-size: 2.6rem;
+    color: #b92d2d;
+    text-align: center;
+    padding-top: 24px;
+}
+
+.modal-container-list {
+    margin-top: 30px;
+}
+
+.modal-container-list a {
+    text-decoration: none;
+}
+
+.modal-item {
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.modal-item p:first-child {
+    font-size: 1.4rem;
+    width: 120px;
+    color: #333;
+    margin: 0 28px;
+    align-items: center;
+    display: flex;
+}
+
+.btn-banking,
+input.stkOfYou {
+    font-size: 1.4rem;
+    width: 500px;
+    padding: 12px 16px;
+    border: 1px solid #b83a3a40;
+    border-radius: 2px;
+}
+
+input.stkOfYou {
+    outline: none;
+}
+
+button.btn.banking {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    margin: auto;
+    padding: 20px 36px;
+    background-color: #ea2b2b;
+    font-size: 1.6rem;
+    color: #fff;
+    margin-top: 24px;
+}
+
+button.btn.banking:hover {
+    opacity: 0.95;
+}
+
+.modal-container__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #333;
+    font-size: 2rem;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+

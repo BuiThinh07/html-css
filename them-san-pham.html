@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./assets/js/sanPham.js"></script>
+    <script src="./assets/js/validate-them-san-pham.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .them-moi-san-pham {
+            width: 50%;
+            border: 1px solid #444;
+            margin: auto;
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        .them-moi-san-pham lable,
+        input {
+            width: 100%;
+            display: block;
+        }
+
+        .them-moi-san-pham label {
+            margin-top: 10px;
+        }
+
+        .them-moi-san-pham input {
+            margin-top: 5px;
+            padding: 10px 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .them-moi-san-pham input, label, button {
+            width: 100%;
+            display: block;
+        }
+
+        .them-moi-san-pham button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: 1px solid #ddd;
+            background-color: rgba(231, 10, 21, 0.267);
+        }
+
+        .them-moi-san-pham button:hover {
+            background-color: rgb(231, 10, 21);
+        }
+        label.error {
+            font-size: 12px;
+            color: rgb(226, 86, 86);
+            font-style: italic;
+            height: 12px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="them-moi-san-pham">
+        <label for="hinhAnh">Hình ảnh</label>
+        <input khongDeTrong noiDungLoiDeTrong = "Hình ảnh không được để trống" type="text" id="hinhAnh">
+        <label for="hinhAnh" class="error"></label>
+
+        <label for="ten">Tên sản phẩm</label>
+        <input khongDeTrong noiDungLoiDeTrong = "Tên không được để trống" type="text" id="ten">
+        <label for="ten" class="error"></label>
+
+        <label for="giaGoc">Giá gốc</label>
+        <input khongDeTrong noiDungLoiDeTrong = "Giá không được để trống" type="number" id="giaGoc">
+        <label for="giaGoc" class="error"></label>
+
+        <label for="phanTramGiamGia">Giảm giá (%) (0-100)</label>
+        <input kiemTraGiaTri type="number" id="phanTramGiamGia">
+        <label for="phanTramGiamGia" class="error"></label>
+
+        <button onclick="onclickTaoSanPham()">Tạo sản phẩm</button>
+    </div>
+
+
+
+    <script>
+
+        var danhSachSanPham = JSON.parse(localStorage.getItem('danhSachSanPham'));
+        if (danhSachSanPham == null) {
+            danhSachSanPham = new Array();
+        }
+        console.log(danhSachSanPham);
+
+        /* Nhiệm vụ
+        1. Lắng nghe sự kiện onclick khi người dùng clich vào buttun tạo sản phẩm
+        2. Lấy toàn bộ dữ liệu người dùng nhập vào 
+        3. Tạo ta đói tượng từ các dữ liệu người dùng nhập vào
+        */
+
+        function onclickTaoSanPham() {
+            var x = kiemTraGiaTriNhap();
+            if (kiemTraFormValidateCacInputDeTrong() == true && x == true) {
+                /* 1. Truy cập các node để lấy dữ liệu */
+                var nodeHinhAnh = document.getElementById('hinhAnh');
+                var hinhAnh = nodeHinhAnh.value;
+                nodeHinhAnh.value = '';
+
+                var nodeTen = document.getElementById('ten');
+                var ten = nodeTen.value;
+                nodeTen.value = '';
+
+                var nodeGiaGoc = document.getElementById('giaGoc');
+                var giaGoc = parseInt(nodeGiaGoc.value)
+                nodeGiaGoc.value = '';
+
+                var nodePhanTramGiamGia = document.getElementById('phanTramGiamGia');
+                var phanTramGiamGia = parseFloat(nodePhanTramGiamGia.value);
+                nodePhanTramGiamGia.value = '';
+
+                /* 2. Tao ra đối tượng cho người dùng nhập vào */
+                var sanPham = TaoDoiTuongSanPham(hinhAnh, ten, giaGoc, phanTramGiamGia, null);
+                console.log(sanPham);
+
+                /* Bước 3: lấy danh sách cũ từ dưới local storage lên */
+                var jsonDanhSachSanPham = localStorage.getItem('danhSachSanPham');
+                var danhSachSanPham = JSON.parse(jsonDanhSachSanPham);
+                if (danhSachSanPham == null) {
+                    danhSachSanPham = new Array();
+                }
+
+                /* 3. Đưa sản phẩm vào danh sách */
+                danhSachSanPham.push(sanPham);
+
+                /* 4.Lưu danh sách sản phẩm vào localStorage */
+                var jsonDanhSachSanPham = JSON.stringify(danhSachSanPham);
+                localStorage.setItem('danhSachSanPham', jsonDanhSachSanPham);
+            }
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

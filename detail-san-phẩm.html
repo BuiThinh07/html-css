@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/header.css">
+    <link rel="stylesheet" href="./assets/font/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/login.css">
+    <link rel="stylesheet" href="./assets/css/grid.css">
+    <link rel="stylesheet" href="./assets/css/detailItem.css">
+    <link rel="stylesheet" href="./assets/css/footer.css">
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Grey+Qo&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <script src="./assets/js/header.js"></script>
+    <script src="./assets/js/footer.js"></script>
+    <script src="./assets/js/form.js"></script>
+    <script src="./assets/js/sanPham.js"></script>
+    <script src="./assets/js/gioHang.js"></script>
+    <script src="./assets/js/chi-tiet-san-pham.js"></script>
+</head>
+
+<body>
+
+    <!-- Hearder -->
+    <header class="header">
+    </header>
+
+    <div class="container">
+        <!-- Hiển thị từng chi tiết sản phẩm -->
+    </div>
+
+    <!-- footer -->
+    <footer class="footer">
+    </footer>
+
+    <!-- Form đăng nhập và đăng kí -->
+    <div class="modal">
+        <div class="modal__overlay"></div>
+        <div class="modal__body">
+        </div>
+    </div>
+
+    <!-- Khung thanh toán -->
+    <div class="modal1 close"></div>
+
+    <!-- render header -->
+    <script>
+        const nodeHeader = document.querySelector('.header');
+        nodeHeader.innerHTML = renderHeader();
+    </script>
+
+    <!-- render login -->
+    <script>
+        const nodeLogin = document.querySelector('.modal__body');
+        nodeLogin.innerHTML = renderLogin();
+    </script>
+
+    <!-- render footer -->
+    <script>
+        const nodeFooter = document.querySelector('footer.footer');
+        nodeFooter.innerHTML = renderFooter();
+    </script>
+
+    <!-- Hiển thị chi tiết sản phẩm -->
+    <script>
+        hienThiChiTietSanPham();
+    </script>
+
+    <!-- Viết thêm vào icon giỏ hàng -->
+    <script>
+
+        var danhSachItemGioHang = layDanhSachItemGioHang();
+        console.log(danhSachItemGioHang)
+        var HTML = chuyenDanhSachItemGioHangSangHTML(danhSachItemGioHang);
+        var nodeIconGioHang = document.querySelector('.header__cart-list-item');
+        nodeIconGioHang.innerHTML = HTML;
+
+    </script>
+
+    <!-- script viết cho form đăng nhập và đăng kí -->
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mong muốn của chúng ta
+            Validator({
+                form: '#form-1',
+                formGroupSelector: '.form-group',
+                errorSelector: '.form-message',
+                rules: [
+                    Validator.isRequired('#fullname', 'Vui lòng nhập tên đầy đủ của bạn'),
+                    Validator.isEmail('#email'),
+                    Validator.minLength('#password', 6),
+                    Validator.isRequired('#password_confirmation'),
+                    Validator.isConfirmed('#password_confirmation', function () {
+                        return document.querySelector('#form-1 #password').value;
+                    }, 'Mật khẩu nhập lại không chính xác')
+                ],
+                onSubmit: function (data) {
+                    // Call API
+                }
+            });
+
+
+            Validator({
+                form: '#form-2',
+                formGroupSelector: '.form-group',
+                errorSelector: '.form-message',
+                rules: [
+                    Validator.isEmail('#email'),
+                    Validator.minLength('#password', 6),
+                ],
+                onSubmit: function (data) {
+                    // Call API
+                }
+            });
+        });
+
+    </script>
+
+    <!-- Script điền thông tin sản phẩm mua -->
+    <script>
+        var list1 = document.querySelectorAll('.detail-item-list-color li');
+        for (const item of list1) {
+            item.addEventListener('click', function () {
+                for (var i = 0; i < list1.length; i++) {
+                    list1[i].classList.remove('choonse');
+                }
+                item.classList.add('choonse');
+            })
+        }
+
+
+        var list2 = document.querySelectorAll('.detail-item-list-size li')
+        for (const item of list2) {
+            item.addEventListener('click', function () {
+                for (var i = 0; i < list2.length; i++) {
+                    list2[i].classList.remove('choonse');
+                }
+                item.classList.add('choonse');
+            })
+        }
+
+        const crease = document.querySelector('.detail-item-quantity-crease');
+        const reduce = document.querySelector('.detail-item-quantity-reduce');
+        const soLuong = document.querySelector('.detail-item-quantity input');
+        crease.addEventListener('click', () => { soLuong.value++ });
+        reduce.addEventListener('click', () => {
+            if (soLuong.value > 1) {
+                soLuong.value--;
+            }
+        })
+
+    </script>
+
+    <!-- Script hiển thị bảng thanh toán -->
+    <script>
+        const nodeModal = document.querySelector('.modal1');
+        const nodeBuy = document.querySelector('.btn.buy');
+
+        nodeBuy.addEventListener('click', () => {
+            var nodeColor = document.querySelector('ul.detail-item-list-color .choonse');
+            var nodeSize = document.querySelector('ul.detail-item-list-size .choonse');
+            if (nodeColor == null || nodeSize == null) {
+                alert('Bạn chưa điền đủ thông tin(màu sắc hoặc size) !!!');
+            }
+            else {
+                var htmlKhungThanhToan = hienThiKhungThanhToan();
+                nodeModal.innerHTML = htmlKhungThanhToan;
+                nodeModal.classList.add('open');
+                nodeModal.classList.remove('close');
+                const nodeClose = document.querySelector('.modal-container__close');
+                nodeClose.addEventListener('click', () => {
+                    nodeModal.classList.add('close');
+                    nodeModal.classList.remove('open');
+                });
+            }
+        });
+    </script>
+    
+
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>

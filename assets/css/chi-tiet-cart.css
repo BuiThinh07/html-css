@@ -1,0 +1,151 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #eee9e924;
+    color: #333;
+    font-size: 16px;
+}
+
+.chi-tiet-cart {
+    margin-bottom: 36px;
+    margin-top: 150px;
+}
+
+.cart-title {
+    font-size: 3.4rem;
+    color: #dc1c1c;
+    font-weight: 550;
+    text-align: center;
+}
+
+.gio-hang {
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 36px;
+    border-right: 1px solid #d2151547;
+    border-left: 1px solid #d2151547;
+}
+
+.item-gio-hang {
+    display: flex;
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid #fb023036;
+}
+
+.item-gio-hang:first-child {
+    border-top: 1px solid #d2151547;
+}
+
+.item-gio-hang a {
+    text-decoration: none;
+    display: flex;
+
+}
+
+.hinh-anh {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 80px;
+    margin: auto -16px 0px;
+    border-right: 1px solid #d2151547;
+}
+
+.hinh-anh img {
+    width: 60px;
+}
+
+.ten {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    width: 500px;
+    font-size: 16px;
+    line-height: 22px;
+    color: #333;
+    padding-right: 20px;
+    margin: auto 0px auto 40px;
+    border-right: 1px solid #d2151547;
+}
+
+.gia {
+    display: flex;
+    font-size: 16px;
+    color: #333;
+    margin: auto;
+}
+
+.gia-ban,
+.gia-goc {
+    width: 120px;
+    display: flex;
+    height: 80px;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #d2151547;
+}
+
+.soLuong {
+    width: 50px;
+    height: 20px;
+    text-align: center;
+    margin: auto 0px;
+}
+
+.tong-tien {
+    width: 140px;
+    display: flex;
+    font-size: 16px;
+    color: #333;
+    margin: auto;
+    height: 80px;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #d2151547;
+    border-left: 1px solid #d2151547;
+}
+
+.hanhDong {
+    font-size: 16px;
+    color: #333;
+    margin: auto;
+    padding: 10px;
+}
+
+.hanhDong:hover {
+    background-color: rgba(207, 54, 54, 0.87);
+    color: #fff;
+}
+
+.tong-cart {
+    display: flex;
+    font-size: 2.4rem;
+    color: #333;
+    font-weight: 700;
+    margin: 28px auto;
+}
+
+.tong-cart p {
+    margin: auto;
+}
+
+.thanh-toan {
+    height: 52px;
+    background-color: #e43434;
+    color: #fff;
+    font-size: 1.8rem;
+    display: block;
+    margin: auto;
+}
+
+.modal-container {
+    height: 352px;
+    margin-top: 180px;
+}
+
+.modal-container-list a {
+    text-decoration: none;
+}
